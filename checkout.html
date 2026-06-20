@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Kiln Kissed Ceramics</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-row">
+    <a class="brand" href="index.html">
+      <span>Kiln Kissed Ceramics</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="cart-link" type="button">Cart (0)</button>
+      <a class="btn" href="shop.html">Shop the Collection</a>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:70px;">
+  <div class="wrap section-head">
+    <span class="eyebrow">Almost there</span>
+    <h2>Checkout</h2>
+    <p>Review your order, enter your shipping and payment details, and we'll get your pieces on their way.</p>
+  </div>
+
+  <div id="checkout-active" class="wrap checkout-grid">
+    <form id="checkout-form" class="kkc-form reveal" style="padding:0; border:none; box-shadow:none;">
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+      </div>
+      <div class="field full" style="margin-bottom:20px;">
+        <label for="address">Shipping Address</label>
+        <input id="address" name="address" type="text" placeholder="Street address" required>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="city">City</label>
+          <input id="city" name="city" type="text" required>
+        </div>
+        <div class="field">
+          <label for="zip">ZIP Code</label>
+          <input id="zip" name="zip" type="text" required>
+        </div>
+      </div>
+      <div class="field full" style="margin-bottom:20px;">
+        <label for="notes">Order Notes (optional)</label>
+        <textarea id="notes" name="notes" placeholder="Gift wrapping, delivery instructions, etc."></textarea>
+      </div>
+
+      <h3 class="checkout-subhead">Payment Details</h3>
+      <div class="field full" style="margin-bottom:20px;">
+        <label for="card-name">Name on Card</label>
+        <input id="card-name" name="card-name" type="text" required>
+      </div>
+      <div class="field full" style="margin-bottom:20px;">
+        <label for="card-number">Card Number</label>
+        <input id="card-number" name="card-number" type="text" inputmode="numeric" placeholder="1234 1234 1234 1234" maxlength="19" required>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="card-expiry">Expiration</label>
+          <input id="card-expiry" name="card-expiry" type="text" inputmode="numeric" placeholder="MM/YY" maxlength="5" required>
+        </div>
+        <div class="field">
+          <label for="card-cvc">CVC</label>
+          <input id="card-cvc" name="card-cvc" type="text" inputmode="numeric" placeholder="123" maxlength="4" required>
+        </div>
+      </div>
+
+      <button class="btn" type="submit" style="width:100%;">Pay &amp; Place Order</button>
+      <p class="checkout-secure-note">🔒 Payments are securely processed at checkout.</p>
+    </form>
+
+    <div>
+      <h3 style="font-size:0.95rem; margin-bottom:18px;">Order Summary</h3>
+      <div id="order-lines"></div>
+      <div class="order-subrow">
+        <span>Subtotal</span>
+        <span id="order-subtotal"></span>
+      </div>
+      <div class="order-subrow">
+        <span>Shipping</span>
+        <span id="order-shipping"></span>
+      </div>
+      <div id="order-total-row" class="order-total">
+        <span>Total</span>
+        <span id="order-total"></span>
+      </div>
+    </div>
+  </div>
+
+  <div id="checkout-confirm" class="wrap confirm-box" style="display:none;">
+    <span class="eyebrow" style="display:block; text-align:center;">Payment successful</span>
+    <h2>Thank you, <span id="confirm-name"></span>!</h2>
+    <p>Your payment went through and your order is confirmed. A receipt has been sent to <span id="confirm-email"></span>, and we'll email you again once it ships.</p>
+    <p class="confirm-order-number">Order #<span id="confirm-order-number"></span></p>
+    <div class="hero-ctas" style="justify-content:center; display:flex; gap:16px; margin-top:24px;">
+      <a class="btn" href="shop.html">Continue Shopping</a>
+      <a class="btn btn-outline" href="index.html">Back to Home</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span>Kiln Kissed Ceramics</span>
+        </div>
+        <p>Small-batch, handmade pottery by Bhavya Kothari, crafted in Sunnyvale, CA for everyday use and thoughtful gifting.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/kiln.kissed.ceramics" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="contact.html">Contact form</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025–26 Kiln Kissed Ceramics by Bhavya Kothari, Sunnyvale CA</div>
+  </div>
+</footer>
+
+<script src="products.js"></script>
+<script src="cart.js"></script>
+<script>
+const SHIPPING_FLAT_RATE = 20;
+
+function renderOrderSummary() {
+  const linesEl = document.getElementById('order-lines');
+  const lines = cartLines();
+  if (!lines.length) {
+    linesEl.innerHTML = '<p style="color:#777; text-transform:none; font-size:0.9rem;">Your cart is empty. <a href="shop.html" style="text-decoration:underline;">Browse the shop</a>.</p>';
+    document.getElementById('order-subtotal').textContent = formatPrice(0);
+    document.getElementById('order-shipping').textContent = formatPrice(0);
+    document.getElementById('order-total').textContent = formatPrice(0);
+    document.querySelector('#checkout-form button[type="submit"]').disabled = true;
+    return;
+  }
+  linesEl.innerHTML = lines.map((line) => `
+    <div class="order-line">
+      <div class="order-line-img"><img src="${line.product.img}" alt="${line.product.alt}" style="${line.product.imgStyle || ''}"></div>
+      <div>
+        <div class="name">${line.product.name}</div>
+        <div class="qty">Qty ${line.qty}</div>
+      </div>
+      <span class="line-total">${formatPrice(line.lineTotal)}</span>
+    </div>
+  `).join('');
+  const subtotal = cartTotal();
+  document.getElementById('order-subtotal').textContent = formatPrice(subtotal);
+  document.getElementById('order-shipping').textContent = formatPrice(SHIPPING_FLAT_RATE);
+  document.getElementById('order-total').textContent = formatPrice(subtotal + SHIPPING_FLAT_RATE);
+}
+
+renderOrderSummary();
+
+document.getElementById('card-number').addEventListener('input', (e) => {
+  const digits = e.target.value.replace(/\D/g, '').slice(0, 16);
+  e.target.value = digits.replace(/(.{4})/g, '$1 ').trim();
+});
+
+document.getElementById('card-expiry').addEventListener('input', (e) => {
+  const digits = e.target.value.replace(/\D/g, '').slice(0, 4);
+  e.target.value = digits.length > 2 ? `${digits.slice(0, 2)}/${digits.slice(2)}` : digits;
+});
+
+document.getElementById('card-cvc').addEventListener('input', (e) => {
+  e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
+});
+
+document.getElementById('checkout-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (!cartLines().length) return;
+  const submitBtn = e.target.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Processing payment…';
+
+  setTimeout(() => {
+    document.getElementById('confirm-name').textContent = document.getElementById('name').value;
+    document.getElementById('confirm-email').textContent = document.getElementById('email').value;
+    document.getElementById('confirm-order-number').textContent = Math.floor(100000 + Math.random() * 900000);
+    localStorage.removeItem(CART_KEY);
+    renderCartBadge();
+    renderCartDrawer();
+    document.getElementById('checkout-active').style.display = 'none';
+    document.getElementById('checkout-confirm').style.display = 'block';
+  }, 900);
+});
+</script>
+<script src="animations.js"></script>
+</body>
+</html>

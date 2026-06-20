@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Kiln Kissed Ceramics</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-row">
+    <a class="brand" href="index.html">
+      <span>Kiln Kissed Ceramics</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="cart-link" type="button">Cart (0)</button>
+      <a class="btn" href="shop.html">Shop the Collection</a>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:70px;">
+  <div class="wrap contact-grid">
+    <div class="contact-side reveal">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Orders, custom pieces, or just to say hi</h2>
+      <p>Whether you're curious about a piece's availability, planning a workplace pop-up, or organizing a local maker event, reach out, Bhavya would love to hear from you.</p>
+      <div class="contact-links">
+        <a href="https://www.instagram.com/kiln.kissed.ceramics" target="_blank" rel="noopener"><span class="dot">📷</span> @kiln.kissed.ceramics</a>
+        <a href="mailto:kiln.kissed.ceramics@gmail.com"><span class="dot">✉️</span> kiln.kissed.ceramics@gmail.com</a>
+      </div>
+      <div class="contact-loc">
+        <h3>Find us in person</h3>
+        <p>Blossom Hill Crafts Store<br>354 East Campbell Avenue<br>Campbell, CA</p>
+      </div>
+    </div>
+
+    <form class="kkc-form reveal" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent! Thank you.';">
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+      </div>
+      <div class="field full" style="margin-bottom:20px;">
+        <label for="inquiry">Inquiry Type</label>
+        <select id="inquiry" name="inquiry">
+          <option>General Question</option>
+          <option>Product Availability</option>
+          <option>Workplace Pop-Up</option>
+          <option>Local Maker Event</option>
+        </select>
+      </div>
+      <div class="field full" style="margin-bottom:20px;">
+        <label for="details">Tell us more</label>
+        <textarea id="details" name="details" placeholder="Share what you're looking for, or event details like date, location, and vendor requirements."></textarea>
+      </div>
+      <button class="btn" type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span>Kiln Kissed Ceramics</span>
+        </div>
+        <p>Small-batch, handmade pottery by Bhavya Kothari, crafted in Sunnyvale, CA for everyday use and thoughtful gifting.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/kiln.kissed.ceramics" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="contact.html">Contact form</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025–26 Kiln Kissed Ceramics by Bhavya Kothari, Sunnyvale CA</div>
+  </div>
+</footer>
+
+<script src="products.js"></script>
+<script src="cart.js"></script>
+<script src="animations.js"></script>
+</body>
+</html>

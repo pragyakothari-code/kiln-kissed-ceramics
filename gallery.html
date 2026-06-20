@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Kiln Kissed Ceramics</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-row">
+    <a class="brand" href="index.html">
+      <span>Kiln Kissed Ceramics</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="cart-link" type="button">Cart (0)</button>
+      <a class="btn" href="shop.html">Shop the Collection</a>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:60px; padding-bottom:40px;">
+  <div class="wrap section-head reveal">
+    <span class="eyebrow">The Gallery</span>
+    <h2>Carved and glazed by hand</h2>
+    <p>Every piece begins with a pressed texture, lace, leaves, carved wood, before it's hand-molded and fired. Browse recent work below.</p>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="gallery-grid reveal-group" id="full-gallery"></div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap section-head reveal">
+    <h2>See something you love?</h2>
+    <p>Most pieces are one of a kind. Reach out to check availability or browse the shop for current listings.</p>
+    <div class="hero-ctas" style="justify-content:center; display:flex; gap:16px; margin-top:10px;">
+      <a class="btn" href="shop.html">Shop the Collection</a>
+      <a class="btn btn-outline" href="contact.html">Ask About a Piece</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span>Kiln Kissed Ceramics</span>
+        </div>
+        <p>Small-batch, handmade pottery by Bhavya Kothari, crafted in Sunnyvale, CA for everyday use and thoughtful gifting.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/kiln.kissed.ceramics" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="contact.html">Contact form</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025–26 Kiln Kissed Ceramics by Bhavya Kothari, Sunnyvale CA</div>
+  </div>
+</footer>
+
+<script>
+const studioShots = {
+  "1":"Plum and coral oval trays with matching round bowls",
+  "3":"Heart-shaped ceramic dishes in blue and red glazes",
+  "4":"Stacked cream rectangular serving trays",
+  "5":"Three red heart-shaped trinket dishes in varying sizes",
+  "6":"Hexagonal ceramic plates in deep red glaze",
+  "7":"Carved blue feather-pattern bowl with wooden servers",
+  "8":"Carved blue geometric dinner plate with wooden servers",
+  "9":"Rectangular blue carved tray with matching triangular dish",
+  "10":"Three round plates with carved palm tree and wave pattern in navy, blue, and green",
+  "12":"Round pink plate carved with butterflies and flowers",
+  "13":"Coral and plum oval trays with matching round bowls",
+  "14":"Pair of red hexagonal trinket plates",
+  "15":"Pair of red carved oval trays with matching dip bowls",
+  "16":"Three scalloped oval dishes in coral, pink, and grey",
+  "17":"Pink wave-textured scalloped plate with wooden servers",
+  "18":"Five heart-shaped trinket dishes in pink, red, and burgundy glazes",
+  "19":"Green leaf-shaped ceramic dish with carved vein texture",
+  "20":"Red plate with carved branch and feather pattern",
+  "21":"Three triangular trinket dishes in grey and coral with heart pattern",
+  "22":"Pair of leaf-shaped ceramic plates with carved vein texture",
+  "23":"Five bird-shaped lace-textured dishes in blue, green, and pink",
+  "24":"Pair of teal plates with carved floral pattern",
+  "25":"Blue geometric tray set with round and triangular trinket dishes",
+  "26":"Pair of scalloped leaf-pattern plates in orange and yellow",
+  "27":"Five heart-shaped dishes in red, pink, blue, and orange glazes",
+  "28":"Round red plate with carved palm tree and wave pattern, leaning against a wall",
+  "29":"Long oval blue tray with star-shaped dish and wooden spoon"
+};
+// Some studio shots have the product off-center in the original photo.
+// For those, pan/zoom so the product's focal point lands at the tile center
+// instead of the literal image center.
+const focalPoints = {
+  "10": { x: 50, y: 38, zoom: 145 }
+};
+// 8 and 9 were manually re-cropped and saved as .jpeg instead of .png.
+const fileExt = {
+  "8": "jpeg",
+  "9": "jpeg"
+};
+const grid = document.getElementById('full-gallery');
+const lightboxImages = [];
+Object.entries(studioShots).forEach(([key, cap]) => {
+  const fig = document.createElement('div');
+  fig.className = 'g-item reveal-item';
+  const focal = focalPoints[key];
+  const imgStyle = focal
+    ? `style="position:absolute; top:50%; left:50%; width:${focal.zoom}%; height:${focal.zoom}%; object-fit:cover; transform:translate(-${focal.x}%, -${focal.y}%);"`
+    : '';
+  const ext = fileExt[key] || 'png';
+  const src = `assets/gallery/${key}.${ext}`;
+  fig.innerHTML = `<img src="${src}" alt="${cap}" loading="lazy" ${imgStyle}><span class="cap">${cap}</span>`;
+  fig.dataset.lightboxIndex = lightboxImages.length;
+  lightboxImages.push({ src, cap });
+  grid.appendChild(fig);
+});
+
+// Lightbox
+const lightbox = document.createElement('div');
+lightbox.id = 'lightbox';
+lightbox.className = 'lightbox';
+lightbox.innerHTML = `
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <button class="lightbox-nav lightbox-prev" aria-label="Previous image">&lsaquo;</button>
+  <button class="lightbox-nav lightbox-next" aria-label="Next image">&rsaquo;</button>
+  <figure class="lightbox-figure">
+    <img class="lightbox-img" src="" alt="">
+    <figcaption class="lightbox-caption"></figcaption>
+  </figure>
+`;
+document.body.appendChild(lightbox);
+
+let lightboxIndex = 0;
+
+function showLightbox(index) {
+  lightboxIndex = (index + lightboxImages.length) % lightboxImages.length;
+  const { src, cap } = lightboxImages[lightboxIndex];
+  const img = lightbox.querySelector('.lightbox-img');
+  img.src = src;
+  img.alt = cap;
+  lightbox.querySelector('.lightbox-caption').textContent = cap;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+grid.addEventListener('click', (e) => {
+  const item = e.target.closest('.g-item');
+  if (!item) return;
+  showLightbox(Number(item.dataset.lightboxIndex));
+});
+
+lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+lightbox.querySelector('.lightbox-prev').addEventListener('click', () => showLightbox(lightboxIndex - 1));
+lightbox.querySelector('.lightbox-next').addEventListener('click', () => showLightbox(lightboxIndex + 1));
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', (e) => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') showLightbox(lightboxIndex - 1);
+  if (e.key === 'ArrowRight') showLightbox(lightboxIndex + 1);
+});
+</script>
+
+<script src="products.js"></script>
+<script src="cart.js"></script>
+<script src="animations.js"></script>
+</body>
+</html>

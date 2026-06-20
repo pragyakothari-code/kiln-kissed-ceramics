@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Kiln Kissed Ceramics</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-row">
+    <a class="brand" href="index.html">
+      <span>Kiln Kissed Ceramics</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="cart-link" type="button">Cart (0)</button>
+      <a class="btn" href="shop.html">Shop the Collection</a>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:70px;">
+  <div class="wrap section-head">
+    <span class="eyebrow">Take a piece home</span>
+    <h2>Shop the Collection</h2>
+    <p>One-of-a-kind bowls, plates, platters, and trinket dishes, ready for everyday use or thoughtful gifting. Each piece is unique, so once it's gone, it's gone.</p>
+  </div>
+  <div class="wrap">
+    <div class="shop-strip reveal-group" id="product-grid"></div>
+    <div class="gallery-more">
+      <p style="color:#4d433c; margin-bottom:20px;">Don't see what you're looking for? Message us directly to ask about a custom or one-off piece.</p>
+      <a class="btn btn-outline" href="contact.html">Inquire About a Piece</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span>Kiln Kissed Ceramics</span>
+        </div>
+        <p>Small-batch, handmade pottery by Bhavya Kothari, crafted in Sunnyvale, CA for everyday use and thoughtful gifting.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/kiln.kissed.ceramics" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="contact.html">Contact form</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025–26 Kiln Kissed Ceramics by Bhavya Kothari, Sunnyvale CA</div>
+  </div>
+</footer>
+
+<script src="products.js"></script>
+<script>
+const grid = document.getElementById('product-grid');
+PRODUCTS.forEach((p, i) => {
+  const card = document.createElement('div');
+  card.className = 'product-card reveal-item';
+  card.innerHTML = `
+    <div class="product-img-wrap"><img src="${p.img}" alt="${p.alt}" style="${p.imgStyle || ''}"></div>
+    <div class="meta">
+      <span class="cat">${p.category}</span>
+      <h3>${p.name}</h3>
+      <span class="price">$${p.price.toFixed(2)}</span>
+      <button class="btn add-btn" data-add-to-cart="${p.id}">Add to Cart</button>
+    </div>
+  `;
+  grid.appendChild(card);
+});
+</script>
+<script src="cart.js"></script>
+<script src="animations.js"></script>
+</body>
+</html>
