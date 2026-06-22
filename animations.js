@@ -20,3 +20,19 @@ if ('IntersectionObserver' in window && revealEls.length) {
 } else {
   revealEls.forEach((el) => el.classList.add('in-view'));
 }
+
+// Mobile nav toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navRow = document.querySelector('.nav-row');
+if (navToggle && navRow) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navRow.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+  navRow.querySelectorAll('nav a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navRow.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
